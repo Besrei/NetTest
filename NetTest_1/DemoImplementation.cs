@@ -14,9 +14,14 @@ namespace DemoImplementation
         {
             var result = new List<DemoTarget.PersonWithEmail>();
 
+            string pattern = @"^[0-9a-zA-Z]+$";
+
             foreach (var person in people)
             {
-                AddPersonWithEmail(result, person);
+                if (Regex.IsMatch(person.Name, pattern) && Regex.IsMatch(person.Id, pattern))
+                {
+                    AddPersonWithEmail(result, person);
+                }
             }
 
             return result;
@@ -24,18 +29,8 @@ namespace DemoImplementation
 
         private static void AddPersonWithEmail(List<PersonWithEmail> result, DemoSource.Person person)
         {
-            Regex pattern = new Regex("[0-9a-zA-Z]*");
-            var sanitizedName = pattern.Matches(person.Name).Single();
-            var sanitizedId = pattern.Matches(person.Id).Single();
-
-            if (sanitizedId == null)
-                return;
-            if (sanitizedName == null)
-                return;
-
             foreach (var email in person.Emails)
             {
-                
                 result.Add(new DemoTarget.PersonWithEmail
                 {
                     //I'm not sure how the mail should be formatted
@@ -43,7 +38,6 @@ namespace DemoImplementation
                     SanitizedNameWithId = $"{person.Name}{person.Id}"
                 });
             }
-
             return;
         }
     }

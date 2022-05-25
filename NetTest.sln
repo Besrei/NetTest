@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTest3", "NetTest3\NetTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTest2", "NetTest2\NetTest2.csproj", "{0440905A-0AA0-4874-BC67-188AB9944F8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTest1.UnitTests", "NetTest1.UnitTests\NetTest1.UnitTests.csproj", "{218DA9CF-5340-4C88-9D5C-397DBD603967}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0440905A-0AA0-4874-BC67-188AB9944F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0440905A-0AA0-4874-BC67-188AB9944F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0440905A-0AA0-4874-BC67-188AB9944F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218DA9CF-5340-4C88-9D5C-397DBD603967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218DA9CF-5340-4C88-9D5C-397DBD603967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218DA9CF-5340-4C88-9D5C-397DBD603967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218DA9CF-5340-4C88-9D5C-397DBD603967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

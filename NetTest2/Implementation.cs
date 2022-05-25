@@ -21,9 +21,10 @@ namespace NetTest2
                 DemoSource.Person personWithEmail = groups.SelectMany(m => m.People).Where(n => n.Emails.Any(o => o.Email == email)).FirstOrDefault();
                 DemoSource.Account accountWithPersonEmail = accounts.Where(m => m.EmailAddress.Email == email).FirstOrDefault();
 
-                result.Add( new( accountWithPersonEmail, personWithEmail));
+                result.Add( new (accountWithPersonEmail, personWithEmail));
             });
-            throw new NotImplementedException();
+
+            return result;
         }
     }
 }
