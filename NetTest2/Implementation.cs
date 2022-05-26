@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoSource;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,18 @@ namespace NetTest2
 
             Parallel.ForEach(emails, email =>
             {
-                DemoSource.Person personWithEmail = groups.SelectMany(m => m.People).Where(n => n.Emails.Any(o => o.Email == email)).FirstOrDefault();
-                DemoSource.Account accountWithPersonEmail = accounts.Where(m => m.EmailAddress.Email == email).FirstOrDefault();
-
-                result.Add( new (accountWithPersonEmail, personWithEmail));
+                AddNewPair(groups, accounts, email, result);
             });
 
             return result;
+        }
+
+        private static void AddNewPair(IEnumerable<Group> groups, IEnumerable<Account> accounts, string email, List<(Account, Person)> result)
+        {
+            DemoSource.Person personWithEmail = groups.SelectMany(m => m.People).Where(n => n.Emails.Any(o => o.Email == email)).FirstOrDefault();
+            DemoSource.Account accountWithPersonEmail = accounts.Where(m => m.EmailAddress.Email == email).FirstOrDefault();
+
+            result.Add(new(accountWithPersonEmail, personWithEmail));
         }
     }
 }
