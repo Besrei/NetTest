@@ -27,10 +27,10 @@ namespace NetTest2
 
         private static void AddNewPair(IEnumerable<Group> groups, IEnumerable<Account> accounts, string email, List<(Account, Person)> result)
         {
-            DemoSource.Person personWithEmail = groups.SelectMany(m => m.People).Where(n => n.Emails.Any(o => o.Email == email)).FirstOrDefault();
-            DemoSource.Account accountWithPersonEmail = accounts.Where(m => m.EmailAddress.Email == email).FirstOrDefault();
+            var account = accounts.FirstOrDefault(a => a.EmailAddress?.Email == email);
+            var person = groups.SelectMany(g => g.People).FirstOrDefault(p => p.Emails.Any(e => e.Email == email));
 
-            result.Add(new(accountWithPersonEmail, personWithEmail));
+            result.Add(new(account, person));
         }
     }
 }
